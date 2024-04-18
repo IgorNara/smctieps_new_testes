@@ -11,7 +11,7 @@
     $con = getConexao();
 
     try{
-        $sql = "SELECT curso.nome AS Curso, turma.dias_de_aula, turma.horario, turma.modalidade
+        $sql = "SELECT curso.nome AS Curso, turma.dias_de_aula, turma.horario, turma.modalidade, turma.link_inscricao
                 FROM curso JOIN turma ON(turma.curso_id = curso.id)
                 WHERE curso.nome = ?";
         
