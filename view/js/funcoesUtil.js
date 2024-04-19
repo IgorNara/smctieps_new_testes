@@ -15,7 +15,11 @@ async function fazFetch(metodo, url, dados = null){
     return meuFetch
 }
 
-// function msgErro(msg){}
+function msgErro(msg){
+    const spanMsg = document.querySelector("#msg");
+    spanMsg.classList = "msg-erro";
+    spanMsg.textContent = msg;
+}
 
 function verificaErro(resposta){
     // console.log(resposta);
@@ -25,4 +29,4 @@ function verificaErro(resposta){
     return resposta;
 }
 
-export { fazFetch }
+export { fazFetch, msgErro }

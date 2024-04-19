@@ -1,5 +1,5 @@
 <?php
-    require_once("../..model/funcoesUtil.php");
+    require_once("../../model/funcoesUtil.php");
 
 
     session_set_cookie_params(['httponly' => true]);
@@ -26,19 +26,24 @@
 
         $ps->execute();
 
-        $usuario = $ps->fetchAll(PDO::FETCH_ASSOC);
+        $usuario = $ps->fetch(PDO::FETCH_ASSOC);
 
         if($usuario && $ps->rowCount() == 1){
-            $senhaCriptografada = password_hash($login["senha"], PASSWORD_DEFAULT);
-            if(password_verify($usuario["senha"], $senhaCriptografada)){
-                $_SESSION["id_user"] = $usuario["id"];
-                $_SESSION["usuario"] = $usuario["nome"];
-                $_SESSION["msg"] = "Usuário logado";
-                $usuario = [
-                    "id"=> $_SESSION["id_user"],
-                    "usuario"=> $_SESSION["usuario"]
-                ];
-                respostaJson(false, $_SESSION["msg"], $usuario);
+            if(password_verify($login["senha"], $usuario["senha"])){
+                if($usuario["ativo"]){
+                    $_SESSION["id_user"] = $usuario["id"];
+                    $_SESSION["usuario"] = $usuario["nome"];
+                    $_SESSION["msg"] = "Usuário logado";
+                    $usuario = [
+                        "id"=> $_SESSION["id_user"],
+                        "usuario"=> $_SESSION["usuario"]
+                    ];
+                    respostaJson(false, $_SESSION["msg"], $usuario);
+                }
+                else{
+                    $_SESSION["msg"] = "Usuário inativo";
+                    respostaJson(true, $_SESSION["msg"], $usuario);
+                }
             }   
             else{
                 $_SESSION["msg"] = "Usuário ou senha inválidos.";

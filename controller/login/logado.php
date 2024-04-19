@@ -1,5 +1,5 @@
 <?php
-    require_once("../models/funcoes.php");
+    require_once("../../model/funcoesUtil.php");
 
     session_set_cookie_params(['httponly' => true]);
 
@@ -11,7 +11,11 @@
         respostaJson(true, "AÇÃO RESTRITA - USUÁRIO NÃO PERMITIDO");
     }
     else{
-        respostaJson(false, "Usuário logado.");
+        $usuario = [
+            "id"=> $_SESSION["id_user"],
+            "usuario"=> $_SESSION["usuario"]
+        ];
+        respostaJson(false, "Usuário logado.", $usuario);
     }
 
 ?>

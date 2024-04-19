@@ -17,7 +17,7 @@ async function buscarCurso(nomeCurso){
         if(resposta.erro){
             throw new Error(resposta.msg);
         }
-        carregarCurso(resposta.dados[0]);
+        carregarCurso(resposta.dados);
     })
     .catch(erro => {
         console.log(erro);

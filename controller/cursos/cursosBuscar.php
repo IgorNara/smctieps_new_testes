@@ -19,7 +19,7 @@
 
         $ps->execute();
 
-        $curso = $ps->fetchAll(PDO::FETCH_ASSOC);
+        $curso = $ps->fetch(PDO::FETCH_ASSOC);
 
         respostaJson(false, "Curso listado com sucesso!", $curso);
     }

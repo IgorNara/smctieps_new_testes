@@ -1,0 +1,7 @@
+.msg-erro{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
