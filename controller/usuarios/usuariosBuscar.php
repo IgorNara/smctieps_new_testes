@@ -11,7 +11,13 @@
     $con = getConexao();
 
     try{
-        $sql = "SELECT * FROM usuarios WHERE usuario.id = ?";
+        $sql = "SELECT usuario.nome, usuario.email AS Email, usuario.cpf AS CPF, usuario.telefone AS Telefone, 
+                usuario.data_nascimento AS 'Data de nascimento', usuario.endereco AS 'Endereço', bairro.nome AS Bairro, cidade.nome AS Cidade, 
+                uf.sigla AS UF, bairro.cep AS CEP
+                FROM usuario JOIN bairro ON(bairro.id = usuario.bairro_id)
+                JOIN cidade ON(cidade.id = bairro.cidade_id)
+                JOIN uf ON(uf.id = cidade.uf_id)
+                WHERE usuario.id = ?";
 
         $ps = $con->prepare($sql);
         $ps->bindParam(1, $idUser["id"]);
@@ -22,7 +28,7 @@
         respostaJson(false, "Informações carregadas com sucesso!", $user);
     }
     catch(PDOException $erro){
-        respostaJson(true, "Não foi possível carregar as informações do usuário.");
+        respostaJson(true, "Não foi possível carregar as informações do usuário.", ["erro"=>$erro->getMessage()]);
     }
 
 ?>
