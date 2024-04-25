@@ -9,7 +9,8 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-@import url("../css/msghtml.css");
+@import url("msghtml.css");
+@import url("perfilEditar.css");
 
 body {
   font-family: "Open Sans", sans-serif;

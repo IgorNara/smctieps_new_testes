@@ -12,7 +12,7 @@ import { fazFetch } from "./funcoesUtil.js";
 
 async function buscarCurso(nomeCurso){
     // console.log(nomeCurso)
-    fazFetch("POST", "../../controller/cursos/cursosBuscar.php", {"nome": nomeCurso})
+    fazFetch("POST", "../../controller/curso/cursoBuscarNome.php", {"nome": nomeCurso})
     .then(resposta => {
         if(resposta.erro){
             throw new Error(resposta.msg);
@@ -23,7 +23,7 @@ async function buscarCurso(nomeCurso){
         console.log(erro);
     })
     
-    fazFetch("POST", "../../controller/cursos/cursosBuscarTurmas.php", {"nome": nomeCurso})
+    fazFetch("POST", "../../controller/curso/cursoBuscarTurma.php", {"nome": nomeCurso})
     .then(resposta =>{
         if(resposta.erro){
             throw new Error(resposta.msg);

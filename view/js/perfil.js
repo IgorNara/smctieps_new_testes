@@ -8,17 +8,24 @@ import { fazFetch, msgErro } from "./funcoesUtil.js";
     if(idUser){
         await verificaUser(idUser);
     }
+
+    document.querySelector("#editarPerfil").addEventListener("click", modalEditarPerfil)
 })()
+
+
+function modalEditarPerfil(){
+    
+}
 
 
 function verificaUser(idUser){
     fazFetch("GET", "../../controller/login/logado.php")
     .then(resposta => {
-        if(resposta.dados.id == idUser){
-            buscarUsuario(resposta.dados);
+        if(resposta.erro || resposta.dados.id != idUser){
+            window.location.href = "http://localhost/minhaspastas/estagio/smctieps_new_testes/view/template/login.html";
         }
         else{
-            window.location.href = "http://localhost/minhaspastas/estagio/smctieps_new_testes/view/template/login.html";
+            buscarUsuario(resposta.dados);
         }
     })
     .catch(erro => {
@@ -28,7 +35,7 @@ function verificaUser(idUser){
 
 
 function buscarUsuario(user){
-    fazFetch("POST", "../../controller/usuarios/usuariosBuscar.php", {"id": user.id})
+    fazFetch("POST", "../../controller/usuario/usuarioBuscarId.php", {"id": user.id})
     .then(resposta => {
         if(resposta.erro){
             msgErro(resposta.msg);
@@ -42,16 +49,6 @@ function buscarUsuario(user){
     })
 }
 
-
-/* <div class="row">
-    <div class="col-sm-3">
-    <p class="mb-0">Nome completo:</p>
-    </div>
-    <div class="col-sm-9">
-    <p class="text-muted mb-0">Johnatan Smith</p>
-    </div>
-</div>
-<hr></hr> */
 
 function carregaUser(dadosUser){
     console.log(dadosUser)
