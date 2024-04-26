@@ -1,0 +1,8 @@
+.modalEditarPerfil{
+    position: absolute;
+    background-color: white;
+    height: 60vh;
+    top: 20%;
+    right: 50%;
+    flex: 1;
+}

@@ -36,7 +36,7 @@ function verificaLogin(campos){
             msgErro(resposta.msg);
         }
         else{
-            window.location.href = `http://localhost/minhasPastas/estagio/smctieps_new_testes/view/template/perfil.html?id=${resposta.dados.id}`;
+            window.location.href = `http://localhost/xampp/projeto_site/smctieps_new_testes/view/template/perfil.html?id=${resposta.dados.id}`;
         }
     })
     .catch(erro => {

@@ -22,7 +22,7 @@ function verificaUser(idUser){
     fazFetch("GET", "../../controller/login/logado.php")
     .then(resposta => {
         if(resposta.erro || resposta.dados.id != idUser){
-            window.location.href = "http://localhost/minhaspastas/estagio/smctieps_new_testes/view/template/login.html";
+            window.location.href = "http://localhost/xampp/projeto_site/smctieps_new_testes/view/template/login.html";
         }
         else{
             buscarUsuario(resposta.dados);

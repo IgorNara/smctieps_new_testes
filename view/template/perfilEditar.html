@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Cadastro</title>
+  <title>Editar perfil</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -105,6 +105,15 @@
 
 
     <span id="msg"></span>
+    <div id="modalEditarPerfil" class="modalEditarPerfil">
+      <form action="">
+        <div>
+          <label for="nome">Nome: </label>
+          <input type="text" name="nome" id="novoNome">
+        </div>
+        
+      </form>
+    </div>
     <section style="background-color: #eee;">
       <div class="container py-5">
         <div class="row">
@@ -224,15 +233,6 @@
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <label for="cep-usuario">CEP</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="cep-usuario" id="cep-usuario">
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
                         <label for="endereco-usuario">Endereço</label>
                       </div>
                       <div class="col-sm-9">
@@ -240,6 +240,7 @@
                       </div>
                     </div>
                     <hr>
+                    <div class=""></div>
                     <div class="row">
                       <div class="col-sm-3">
                         <label for="senha-usuario">Senha</label>
