@@ -17,15 +17,13 @@ try{
 
     $ps->bindParam(1, $buscarCidade["nome"]);
 
-    $ps -> execute();
+    $ps->execute();
 
-    $buscarCidade = $ps -> fetch(PDO::FETCH_ASSOC);
+    $buscarCidade = $ps->fetch(PDO::FETCH_ASSOC);
 
     respostaJson(false, "Cidade listada com sucesso.", $buscarCidade);
-
-
 }
 catch(PDOException $erro){
-    respostaJson(true, "Não foi possível buscar nenhuma cidade.", ["erro" => $erro ->getMessage()]);
+    respostaJson(true, "Não foi possível buscar nenhuma cidade.", ["erro"=>$erro->getMessage()]);
 }
 ?>

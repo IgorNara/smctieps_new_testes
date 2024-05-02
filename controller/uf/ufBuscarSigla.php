@@ -17,13 +17,13 @@ try{
 
     $ps->bindParam(1, $buscarUf["sigla"]);
 
-    $ps -> execute();
+    $ps->execute();
 
-    $buscarCidade = $ps -> fetch(PDO::FETCH_ASSOC);
+    $buscarCidade = $ps->fetch(PDO::FETCH_ASSOC);
 
     respostaJson(false, "UF listada com sucesso.", $buscarUf);
 }
 catch(PDOException $erro){
-    respostaJson(true, "Não foi possível buscar nenhuma UF.", ["erro" => $erro ->getMessage()]);
+    respostaJson(true, "Não foi possível buscar nenhuma UF.", ["erro"=>$erro->getMessage()]);
 }
 ?>

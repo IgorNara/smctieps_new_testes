@@ -15,11 +15,12 @@ try{
 
     $ps = $con->prepare($sql);
     $ps->bindParam(1, $cidade["nome"]);
-    $ps->execute(2, $cidade["uf_id"]);
+    $ps->bindParam(2, $cidade["uf_id"]);
+    $ps->execute();
 
-    respostaJson(false, "Cidade inserida com sucesso.")
+    respostaJson(false, "Cidade inserida com sucesso.");
 }
 catch(PDOException $erro){
-    respostaJson(true, "Não foi possível inserir a cidade.")
+    respostaJson(true, "Não foi possível inserir a cidade.");
 }
 ?>

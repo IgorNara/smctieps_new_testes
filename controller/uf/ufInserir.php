@@ -4,7 +4,7 @@ require_once("../../model/funcoesUtil.php");
 $ufPost = file_get_contents("php://input");
 $uf = json_decode($ufPost, true);
 
-if(empty($) || is_null($uf)){
+if(empty($uf) || is_null($uf)){
     respostaJson(true, "Nenhuma UF foi recebido para ser inserido.");
 }
 $con = getConexao();
@@ -18,9 +18,9 @@ try{
 
     $ps->execute();
 
-    respostaJson(false, "UF inserida com sucesso.", $uf)
+    respostaJson(false, "UF inserida com sucesso.", $uf);
 }
 catch(PDOException $erro){
-    respostaJson(true, "Não foi possível inserir a UF.", ["erro" => $erro ->getMessage()]);
+    respostaJson(true, "Não foi possível inserir a UF.", ["erro"=>$erro->getMessage()]);
 }
 ?>

@@ -21,9 +21,9 @@ try{
 
     $bairro = $ps->fetch(PDO::FETCH_ASSOC);
 
-    respostaJson(false, "Bairro listado com sucesso.", $bairro)
+    respostaJson(false, "Bairro listado com sucesso.", $bairro);
 }
 catch(PDOException $erro){
-    respostaJson(true, "Não foi possível buscar nenhum bairro.", ["erro" => $erro ->getMessage()]);
+    respostaJson(true, "Não foi possível buscar nenhum bairro.", ["erro"=>$erro->getMessage()]);
 }
 ?>
