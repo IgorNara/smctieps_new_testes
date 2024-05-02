@@ -56,6 +56,6 @@
         }
     }
     catch(PDOException $erro){
-        respostaJson(true, "ERRO AO FAZER LOGIN");
+        respostaJson(true, "ERRO AO FAZER LOGIN", ["erro"=>$erro->getMessage()]);
     }
 ?>

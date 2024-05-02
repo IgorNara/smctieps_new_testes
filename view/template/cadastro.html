@@ -168,12 +168,13 @@
           <div class="col-lg-8">
             <div class="card mb-4">
                 <div id="info-perfil" class="card-body">
+                  <form action="../../controller/login/cadastro.php" id="form-cadastro">
                     <div class="row">
                         <div class="col-sm-3">
                         <label for="nome-usuario">Nome</label>
                         </div>
                         <div class="col-sm-9">
-                        <input type="text" id="nome-usuario" name="nome-usuario" required>
+                        <input type="text" id="nome-usuario" name="nome-usuario" placeholder="Nome completo" required>
                         </div>
                       </div>
                       <hr>
@@ -182,7 +183,7 @@
                            <label for="email-usuario">E-mail</label>
                         </div>
                         <div class="col-sm-9">
-                          <input type="email" name="email-usuario" id="email-usuario" required>
+                          <input type="email" name="email-usuario" id="email-usuario" placeholder="Digite seu email" required>
                         </div>
                       </div>
                     <hr>
@@ -191,7 +192,7 @@
                         <label for="idade-usuario">Idade</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" name="idade-usuario" id="idade-usuario" required> <br>
+                        <input type="text" name="idade-usuario" id="idade-usuario" placeholder="Sua idade (ex: 25)" required> <br>
                       </div>
                     </div>
                     <hr>
@@ -200,7 +201,7 @@
                         <label for="cpf-usuario">CPF</label><br>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" name="cpf-usuario" id="cpf-usuario" required>
+                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="Seu CPF (ex: 123.456.789-00)" required>
                       </div>
                     </div>
                     <hr>
@@ -209,7 +210,7 @@
                         <label for="telefone-usuario">Telefone</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" name="telefone-usuario" id="telefone-usuario" required>
+                        <input type="text" name="telefone-usuario" id="telefone-usuario" placeholder="Seu número de telefone (Com DDD, ex: (11) 99999-9999)" required>
                       </div>
                     </div>
                     <hr>
@@ -218,7 +219,7 @@
                         <label for="data-nascimento">Data de Nascimento</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" name="data-nascimento" id="data-nascimento" required>
+                        <input type="text" name="data-nascimento" id="data-nascimento" placeholder="Sua data de Nascimento (ex: 01/01/1990)" required>
                       </div>
                     </div>
                     <hr>
@@ -227,7 +228,7 @@
                         <label for="cep-usuario">CEP</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" name="cep-usuario" id="cep-usuario">
+                        <input type="text" name="cep-usuario" id="cep-usuario" placeholder="Insira seu CEP (ex: 12345-678)" required>
                       </div>
                     </div>
                     <hr>
@@ -236,7 +237,7 @@
                         <label for="endereco-usuario">Endereço</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" name="endereco-usuario" id="endereco-usuario" required>
+                        <input type="text" name="endereco-usuario" id="endereco-usuario" placeholder="Rua, complemento e bairro" required>
                       </div>
                     </div>
                     <hr>
@@ -245,7 +246,7 @@
                         <label for="senha-usuario">Senha</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="password" name="senha-usuario" id="senha-usuario" required>
+                        <input type="password" name="senha-usuario" id="senha-usuario" placeholder="Escreva sua senha" required>
                       </div>
                     </div>
                     <hr>
@@ -254,7 +255,7 @@
                         <label for="confirmar-senha">Confirme sua senha</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="password" name="confirmar-senha" id="confirmar-senha" required>
+                        <input type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Reescreva a sua senha" required>
                       </div>
                     </div>
                     <hr>
@@ -281,7 +282,40 @@
                             <label for="nao-beneficio">Não</label>       
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label for="genero">Qual seu Gênero?</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <input type="radio" name="genero" id="genero-fem" value="F" required>
+                        <label for="genero-fem">Feminino</label>
+                        <input type="radio" name="genero" id="genero-masc" value="M" required>
+                        <label for="genero-masc">Masculino</label>
+                        <input type="radio" name="genero" id="genero-outro" value="outro" required>
+                        <label for="genero-outro">Outro</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label for="possui-nome-social">Você possui nome social?</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <input type="radio" name="possui-nome-social" id="sim-nome-social" value="sim" required>                   
+                        <label for="sim-nome-social">Sim</label>                  
+                        <input type="radio" name="possui-nome-social" id="nao-nome-social" value="nao" required>                                 
+                        <label for="nao-nome-social">Não</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label for="nome-social">Qual é?</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <input type="text" name="nome-social" id="nome-social">
+                      </div>
+                    </div>
+                  </form>
+              </div> 
             </div>
           </div>
         </div>
@@ -438,7 +472,7 @@
   <script src="../vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js" type="module"></script>
   <script src="../js/perfil.js" type="module"></script>
 </body>
 

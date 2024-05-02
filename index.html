@@ -56,8 +56,8 @@
           <li><a href="#features">A Secretaria</a></li>
           <li class="dropdown"><a href="#cevest"><span>Cevest</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li class="curso"><a href="view/template/1_cevest_artesanato_boneca.html">Artesanato de Boneca</a></li>
-              <li class="curso"><a href="view/template/2_cevest_bolsas_e_ecobags.html">Oficina de Bolsas e Ecobags</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Artesanato de Boneca">Artesanato de Boneca</a></li>
+                <li class="curso"><a href="view/template/curso.html?curso=Oficina de Bolsas e Ecobags">Oficina de Bolsas e Ecobags</a></li>
               <!--lli class="dropdown"><a href="3_cevest_corte_industrial.html"><span>Corte Industrial</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="https://cevest.pmnf.rj.gov.br/login/?next=/atividade/cevest/30/matricular">Presencial</a></li>
@@ -68,15 +68,15 @@
                   <li><a href="#">Deep Drop Dn 5</a></li>
                 </ul>
               </li-->
-              <li class="curso"><a href="view/template/3_cevest_corte_industrial.html">Corte Industrial</a></li>
-              <li class="curso"><a href="view/template/4_cevest_costura_fitness.html">Costura Fitness</a></li>
-              <li class="curso"><a href="view/template/5_cevest_costura_intima.html">Costura Íntima</a></li>
-              <li class="curso"><a href="view/template/6_cevest_costura_plana.html">Costura Plana</a></li>
-              <li class="curso"><a href="view/template/7_cevest_criacao_e_desenvolvimento_de_colecao.html">Criação e Desenvolvimento de Coleção</a></li>
-              <li class="curso"><a href="view/template/8_cevest_desenho_de_moda.html">Desenho de Moda</a></li>
-              <li class="curso"><a href="view/template/9_cevest_modelagem_fitness.html">Modelagem Fitness</a></li>
-              <li class="curso"><a href="view/template/11_cevest_modelagem_intima.html">Modelagem Intima</a></li>
-              <li class="curso"><a href="view/template/10_cevest_modelagem_plana.html">Modelagem Plana</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Corte Industrial">Corte Industrial</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Costura Fitness">Costura Fitness</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Costura Íntima">Costura Íntima</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Costura Plana">Costura Plana</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Criação e Desenvolvimento de Coleção">Criação e Desenvolvimento de Coleção</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Desenho de Moda">Desenho de Moda</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Modelagem Fitness">Modelagem Fitness</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Modelagem Intima">Modelagem Intima</a></li>
+              <li class="curso"><a href="view/template/curso.html?curso=Modelagem Plana">Modelagem Plana</a></li>
             </ul>
           </li>
 
@@ -146,7 +146,7 @@
             </ul>
           </li>
 
-          <li><a href="https://cevest.pmnf.rj.gov.br/login/">Login</a></li>
+          <li><a id="login_perfil" href=""></a></li>
           <li><a href="#"></a></li>
           <li><a href="#"></a></li>
         </ul>
@@ -425,7 +425,7 @@
               </div>
     
 
-              <br><p></p><a href="./view/template/0_cevest_lista_de_cursos.html"><button type="button" class="btn btn-primary">Para conhecer todos os cursos ofertados, clique aqui</button></a>
+              <br><p></p><a href="view/template/0_cevest_lista_de_cursos.html"><button type="button" class="btn btn-primary">Para conhecer todos os cursos ofertados, clique aqui</button></a>
             </div>
             </p>
           </div>
@@ -489,7 +489,7 @@
               A Secretaria de Ciência e Tecnologia é a responsável pelo PDEE do município e tem realizado um trabalho com 
               expressivos resultados para os cidadãos que buscam estágios como forma de obter experiência para entrada no mercado de trabalho.
             </p>
-            <br><p></p><a href="../view/template/estagio.html"><button type="button" class="btn btn-primary">Para mais informações, clique aqui</button></a>         
+            <br><p></p><a href="view/template/estagio.html"><button type="button" class="btn btn-primary">Para mais informações, clique aqui</button></a>         
           </div>
         </div>
 
@@ -604,7 +604,8 @@
   <script src="view/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="view/js/main.js"></script>
+  <script src="view/js/main.js" type="module"></script>
+  <script src="view/js/index.js" type="module"></script>
 
     
           <!-- ínicio plugin de whatsapp -->

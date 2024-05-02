@@ -1,57 +1,25 @@
 import { fazFetch, msgErro } from "./funcoesUtil.js";
+import { verificaUser, buscarUsuario } from "./funcoesUser.js";
 
 
 (async () => {
     const params = new URLSearchParams(window.location.search);
     const idUser = params.get('id');
 
-    if(idUser){
-        await verificaUser(idUser);
+    if(!idUser){
+        window.location.href = `http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/view/template/login.html`;
     }
+    document.querySelector("#editarPerfil").addEventListener("click", function(){
+        window.location.href = `http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/view/template/perfilEditar.html?id=${idUser}`;
+    })
 
-    document.querySelector("#editarPerfil").addEventListener("click", modalEditarPerfil)
+    verificaUser(idUser)
+    .then(resposta => buscarUsuario(resposta))
+    .then(resposta => carregaUser(resposta))    
 })()
 
 
-function modalEditarPerfil(){
-    
-}
-
-
-function verificaUser(idUser){
-    fazFetch("GET", "../../controller/login/logado.php")
-    .then(resposta => {
-        if(resposta.erro || resposta.dados.id != idUser){
-            window.location.href = "http://localhost/xampp/projeto_site/smctieps_new_testes/view/template/login.html";
-        }
-        else{
-            buscarUsuario(resposta.dados);
-        }
-    })
-    .catch(erro => {
-        console.log(erro);
-    })
-}
-
-
-function buscarUsuario(user){
-    fazFetch("POST", "../../controller/usuario/usuarioBuscarId.php", {"id": user.id})
-    .then(resposta => {
-        if(resposta.erro){
-            msgErro(resposta.msg);
-        }
-        else{
-            carregaUser(resposta.dados);
-        }
-    })
-    .catch(erro => {
-        console.log(erro);
-    })
-}
-
-
 function carregaUser(dadosUser){
-    console.log(dadosUser)
     const topicos = Object.keys(dadosUser);
     const valores = Object.values(dadosUser);
 
@@ -62,7 +30,6 @@ function carregaUser(dadosUser){
         }
         criaHtml(topicos[index], valor, index, topicos.length);
     });
-    
 }
 
 
@@ -97,3 +64,6 @@ function criaHtml(topico, valor, index, qtdTopicos){
         divInfoPerfil.append(divPai, hr);
     }
 }
+
+
+export { verificaUser, buscarUsuario}

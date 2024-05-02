@@ -20,7 +20,7 @@ try{
 
     $ps->execute();
 
-    respostaJson(false, "Bairro inserido com sucesso.", $bairro)
+    respostaJson(false, "Bairro inserido com sucesso.", $bairro);
 }
 catch(PDOException $erro){
     respostaJson(true, "Não foi possível inserir o bairro.", ["erro" => $erro ->getMessage()]);

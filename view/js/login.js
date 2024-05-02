@@ -31,12 +31,11 @@ function verificaCamposLogin(){
 function verificaLogin(campos){
     fazFetch("POST", "../../controller/login/login.php", campos)
     .then(resposta => {
-        console.log(resposta);
         if(resposta.erro){
             msgErro(resposta.msg);
         }
         else{
-            window.location.href = `http://localhost/xampp/projeto_site/smctieps_new_testes/view/template/perfil.html?id=${resposta.dados.id}`;
+            window.location.href = `http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/view/template/perfil.html?id=${resposta.dados.id}`;
         }
     })
     .catch(erro => {
