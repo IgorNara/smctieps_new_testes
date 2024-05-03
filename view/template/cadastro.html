@@ -264,9 +264,9 @@
                             <label for="situacao-emprego-usuario">Você está empregado?</label><br>
                         </div>
                         <div class="col-sm-9">
-                            <input type="radio" name="situacao-emprego-usuario" id="sim-emprego" value="sim" required>
+                            <input type="radio" name="situacao-emprego-usuario" value="sim" required>
                             <label for="sim-emprego">Sim</label>
-                            <input type="radio" name="situacao-emprego-usuario" id="nao-emprego" value="nao" required>
+                            <input type="radio" name="situacao-emprego-usuario" value="nao" required>
                             <label for="nao-emprego">Não</label> 
                         </div>                       
                     </div>
@@ -276,36 +276,39 @@
                             <label for="beneficios-governo-usuario">Você recebe benefícios do governo?</label><br>                   
                         </div>
                         <div class="col-sm-9">
-                            <input type="radio" name="beneficios-governo-usuario" id="sim-beneficio" value="sim" required>                   
+                            <input type="radio" name="beneficios-governo-usuario" value="sim" required>                   
                             <label for="sim-beneficio">Sim</label>                  
-                            <input type="radio" name="beneficios-governo-usuario" id="nao-beneficio" value="nao" required>                                 
+                            <input type="radio" name="beneficios-governo-usuario" value="nao" required>                                 
                             <label for="nao-beneficio">Não</label>       
                         </div>
+                        <hr>
                     </div>
                     <div class="row">
                       <div class="col-sm-3">
                         <label for="genero">Qual seu Gênero?</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="radio" name="genero" id="genero-fem" value="F" required>
+                        <input type="radio" name="genero" value="F" required>
                         <label for="genero-fem">Feminino</label>
-                        <input type="radio" name="genero" id="genero-masc" value="M" required>
+                        <input type="radio" name="genero" value="M" required>
                         <label for="genero-masc">Masculino</label>
-                        <input type="radio" name="genero" id="genero-outro" value="outro" required>
+                        <input type="radio" name="genero" value="outro" required>
                         <label for="genero-outro">Outro</label>
                       </div>
                     </div>
+                    <hr>
                     <div class="row">
                       <div class="col-sm-3">
                         <label for="possui-nome-social">Você possui nome social?</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="radio" name="possui-nome-social" id="sim-nome-social" value="sim" required>                   
+                        <input type="radio" name="possui-nome-social" value="sim" required>                   
                         <label for="sim-nome-social">Sim</label>                  
-                        <input type="radio" name="possui-nome-social" id="nao-nome-social" value="nao" required>                                 
+                        <input type="radio" name="possui-nome-social" value="nao" required>                                 
                         <label for="nao-nome-social">Não</label>
                       </div>
                     </div>
+                    <hr>
                     <div class="row">
                       <div class="col-sm-3">
                         <label for="nome-social">Qual é?</label>
@@ -313,7 +316,8 @@
                       <div class="col-sm-9">
                         <input type="text" name="nome-social" id="nome-social">
                       </div>
-                    </div>
+                    </div> 
+                    <button id="btn-cadastro"></button>
                   </form>
               </div> 
             </div>
