@@ -21,14 +21,14 @@ try{
     $ps->bindParam(4, $cadastro["telefone"]);
     $ps->bindParam(5, $cadastro["data_nascimento"]);
     $ps->bindParam(6, $cadastro["endereco"]);
-    $ps->bindParam(7, $cadastro["senha"]);
+    $ps->bindParam(7, password_hash($cadastro["senha"], PASSWORD_DEFAULT));
     $ps->bindParam(8, $cadastro["bairro_id"]);
 
     $ps->execute();
 
-    respostaJson(false, "Usuário cadastrado com sucesso.", $cadastro);
+    respostaJson(false, "Usuário cadastrado com sucesso.", ["id"=>$con->lastInsertId()]);
 }
 catch(PDOException $erro){
-    respostaJson(true, "Erro ao cadastrar usuário.", ["erro" => $erro->getMessage()]);
+    respostaJson(true, "Erro ao cadastrar usuário.", ["erro"=>$erro->getMessage()]);
 }
 ?>
