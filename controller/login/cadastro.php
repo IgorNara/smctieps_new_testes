@@ -10,8 +10,8 @@ if(empty($cadastro) || is_null($cadastro)){
 $con = getConexao();
 
 try{
-    $sql = "INSERT INTO usuario(nome, email, cpf, telefone, data_nascimento, endereco, senha, bairro_id)
-       VALUES (?,?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO usuario(nome, email, cpf, telefone, data_nascimento, endereco, senha, bairro_id, idade, emprego, beneficios_governo, genero)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $ps = $con->prepare($sql);
 
@@ -23,6 +23,10 @@ try{
     $ps->bindParam(6, $cadastro["endereco"]);
     $ps->bindParam(7, password_hash($cadastro["senha"], PASSWORD_DEFAULT));
     $ps->bindParam(8, $cadastro["bairro_id"]);
+    $ps->bindParam(9, $cadastro["idade"]);
+    $ps->bindParam(10, $cadastro["emprego"]);
+    $ps->bindParam(11, $cadastro["beneficios-governo"]);
+    $ps->bindParam(12, $cadastro["genero"]);
 
     $ps->execute();
 

@@ -22,7 +22,6 @@ import { fazFetch, msgErro } from "./funcoesUtil.js";
 
 function verificaDadosCadastro(){
     //código pra verificar se todos os campos foram preenchidos
-    
 }
 
 
@@ -38,10 +37,9 @@ function dadosCadastro(){
         "endereco": document.querySelector("#endereco-usuario").value,
         "senha": document.querySelector("#senha-usuario").value,
         "confirmaSenha": document.querySelector("#confirmar-senha").value,
-        "situacao-emprego": document.querySelector("input[name='situacao-emprego-usuario']:checked").value,
-        "beneficios-governo": document.querySelector("input[name='beneficios-governo-usuario']:checked").value,
+        "situacao-emprego": document.querySelector("input[name='situacao-emprego-usuario']:checked").value == "sim"?true:false,
+        "beneficios-governo": document.querySelector("input[name='beneficios-governo-usuario']:checked").value == "sim"?true:false,
         "genero": document.querySelector("input[name='genero']:checked").value,
-        "possui-nome-social": document.querySelector("input[name='possui-nome-social']:checked").value,
         "nome_social": document.querySelector("#nome-social").value
     }
 } 
