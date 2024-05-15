@@ -14,7 +14,9 @@
   <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -104,38 +106,37 @@
 
 
 
-    <span id="msg"></span>
-    <section style="background-color: #eee;">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col">
-            <!--nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+  <span id="msg"></span>
+  <section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <!--nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
               <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">User</a></li>
                 <li class="breadcrumb-item active" aria-current="page">User Profile</li>
               </ol>
             </nav-->
-          </div>
         </div>
-    
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card mb-4">
-              <div class="card-body text-center">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                  class="rounded-circle img-fluid" style="width: 150px;">
-                <h5 id="nome" class="my-3"></h5>
-                <p id="cargo" class="text-muted mb-1"></p>
-                <!--p class="text-muted mb-4">Bay Area, San Francisco, CA</p-->
-                <div class="d-flex justify-content-center mb-2">
-                  <button id="editarPerfil" type="button" class="btn btn-primary">Editar Perfil</button>
-                </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="Avatar do usuário John Doe" class="rounded-circle img-fluid" style="width: 150px">
+              <h5 id="nome" class="my-3"></h5>
+              <p id="cargo" class="text-muted mb-1"></p>
+              <!--p class="text-muted mb-4">Bay Area, San Francisco, CA</p-->
+              <div class="d-flex justify-content-center mb-2">
+                <button id="editarPerfil" type="button" class="btn btn-primary">Editar Perfil</button>
               </div>
             </div>
+          </div>
 
 
-            <!--div class="card mb-4 mb-lg-0">
+          <!--div class="card mb-4 mb-lg-0">
               <div class="card-body p-0">
                 <ul class="list-group list-group-flush rounded-3">
                   <li class="list-group-item d-flex justify-content-between align-items-center p-3">
@@ -161,172 +162,182 @@
                 </ul>
               </div>
             </div-->
-          </div>
+        </div>
 
 
 
-          <div class="col-lg-8">
-            <div class="card mb-4">
-                <div id="info-perfil" class="card-body">
-                  <form action="../../controller/login/cadastro.php" id="form-cadastro">
-                    <div class="row">
-                        <div class="col-sm-3">
-                        <label for="nome-usuario">Nome</label>
-                        </div>
-                        <div class="col-sm-9">
-                        <input type="text" id="nome-usuario" name="nome-usuario" placeholder="Nome completo" required>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                           <label for="email-usuario">E-mail</label>
-                        </div>
-                        <div class="col-sm-9">
-                          <input type="email" name="email-usuario" id="email-usuario" placeholder="Digite seu email" required>
-                        </div>
-                      </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="idade-usuario">Idade</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="idade-usuario" id="idade-usuario" placeholder="Sua idade (ex: 25)" required> <br>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="cpf-usuario">CPF</label><br>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="Seu CPF (ex: 123.456.789-00)" required>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="telefone-usuario">Telefone</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="telefone-usuario" id="telefone-usuario" placeholder="Seu número de telefone (Com DDD, ex: (11) 99999-9999)" required>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="data-nascimento">Data de Nascimento</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="data-nascimento" id="data-nascimento" placeholder="Sua data de Nascimento (ex: 01/01/1990)" required>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="cep-usuario">CEP</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="cep-usuario" id="cep-usuario" placeholder="Insira seu CEP (ex: 12345-678)" required>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="endereco-usuario">Endereço</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="endereco-usuario" id="endereco-usuario" placeholder="Rua, complemento e bairro" required>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="senha-usuario">Senha</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="password" name="senha-usuario" id="senha-usuario" placeholder="Escreva sua senha" required>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="confirmar-senha">Confirme sua senha</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Reescreva a sua senha" required>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label for="situacao-emprego-usuario">Você está empregado?</label><br>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="radio" name="situacao-emprego-usuario" value="sim" required>
-                            <label for="sim-emprego">Sim</label>
-                            <input type="radio" name="situacao-emprego-usuario" value="nao" required>
-                            <label for="nao-emprego">Não</label> 
-                        </div>                       
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label for="beneficios-governo-usuario">Você recebe benefícios do governo?</label><br>                   
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="radio" name="beneficios-governo-usuario" value="sim" required>                   
-                            <label for="sim-beneficio">Sim</label>                  
-                            <input type="radio" name="beneficios-governo-usuario" value="nao" required>                                 
-                            <label for="nao-beneficio">Não</label>       
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="genero">Qual seu Gênero?</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="radio" name="genero" value="F" required>
-                        <label for="genero-fem">Feminino</label>
-                        <input type="radio" name="genero" value="M" required>
-                        <label for="genero-masc">Masculino</label>
-                        <input type="radio" name="genero" value="outro" required>
-                        <label for="genero-outro">Outro</label>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="possui-nome-social">Você possui nome social?</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="radio" name="possui-nome-social" value="sim" required>                   
-                        <label for="sim-nome-social">Sim</label>                  
-                        <input type="radio" name="possui-nome-social" value="nao" required>                                 
-                        <label for="nao-nome-social">Não</label>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <label for="nome-social">Qual é?</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="text" name="nome-social" id="nome-social">
-                      </div>
-                    </div> 
-                    <button id="btn-cadastro"></button>
-                  </form>
-              </div> 
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div id="info-perfil" class="card-body">
+              <form action="../../controller/login/cadastro.php" id="form-cadastro">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="nome-usuario">Nome</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" id="nome-usuario" name="nome-usuario" placeholder="Nome completo" required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="email-usuario">E-mail</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="email" name="email-usuario" id="email-usuario" placeholder="Digite seu email" required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="idade-usuario">Idade</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="idade-usuario" id="idade-usuario" placeholder="Sua idade (ex: 25)"
+                      required> <br>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="cpf-usuario">CPF</label><br>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="Seu CPF (ex: 123.456.789-00)"
+                      required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="telefone-usuario">Telefone</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="telefone-usuario" id="telefone-usuario"
+                      placeholder="Seu número de telefone (Com DDD, ex: (11) 99999-9999)" required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="data-nascimento">Data de Nascimento</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="data-nascimento" id="data-nascimento"
+                      placeholder="Sua data de Nascimento (ex: 01/01/1990)" required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="cep-usuario">CEP</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="cep-usuario" id="cep-usuario" placeholder="Insira seu CEP (ex: 12345-678)"
+                      required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="endereco-usuario">Endereço</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="endereco-usuario" id="endereco-usuario"
+                      placeholder="Rua, complemento e bairro" required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="senha-usuario">Senha</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="password" name="senha-usuario" id="senha-usuario" placeholder="Escreva sua senha"
+                      required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="confirmar-senha">Confirme sua senha</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha"
+                      placeholder="Reescreva a sua senha" required>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="situacao-emprego-usuario">Você está empregado?</label><br>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="radio" name="situacao-emprego-usuario" value="sim" required>
+                    <label for="sim-emprego">Sim</label>
+                    <input type="radio" name="situacao-emprego-usuario" value="nao" required>
+                    <label for="nao-emprego">Não</label>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="beneficios-governo-usuario">Você recebe benefícios do governo?</label><br>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="radio" name="beneficios-governo-usuario" value="sim" required>
+                    <label for="sim-beneficio">Sim</label>
+                    <input type="radio" name="beneficios-governo-usuario" value="nao" required>
+                    <label for="nao-beneficio">Não</label>
+                  </div>
+                  <hr>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="genero">Qual seu Gênero?</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="radio" name="genero" value="F" required>
+                    <label for="genero-fem">Feminino</label>
+                    <input type="radio" name="genero" value="M" required>
+                    <label for="genero-masc">Masculino</label>
+                    <input type="radio" name="genero" value="outro" required>
+                    <label for="genero-outro">Outro</label>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="possui-nome-social">Você possui nome social?</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="radio" name="possui-nome-social" value="sim" required>
+                    <label for="sim-nome-social">Sim</label>
+                    <input type="radio" name="possui-nome-social" value="nao" required>
+                    <label for="nao-nome-social">Não</label>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label for="nome-social">Qual é?</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="nome-social" id="nome-social">
+                  </div>
+                </div>
+                <div>
+                  <button id="btn-cadastro">Enviar</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
+      </div>
 
-                    
 
-              <!--div class="col-md-6">
+
+      <!--div class="col-md-6">
                 <div class="card mb-4 mb-md-0">
                   <div class="card-body">
                     <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
@@ -368,12 +379,12 @@
 
             </div><--End sidebar -->
 
-          </div><!-- End blog sidebar -->
+    </div><!-- End blog sidebar -->
 
-        </div>
+    </div>
 
-      </div>
-    </section><!-- End Blog Single Section -->
+    </div>
+  </section><!-- End Blog Single Section -->
 
   </main><!-- End #main -->
 
@@ -436,7 +447,8 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <h3>About Moderna</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
+              darta donna mare fermentum iaculis eu non diam phasellus.</p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -463,7 +475,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../vendor/purecounter/purecounter_vanilla.js"></script>
@@ -476,6 +489,7 @@
   <script src="../vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
+  <script src="../js/cadastro.js" type="module"></script>
   <script src="../js/main.js" type="module"></script>
 </body>
 
