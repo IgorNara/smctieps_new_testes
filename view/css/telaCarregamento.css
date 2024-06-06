@@ -1,0 +1,9 @@
+.modalCarregamento{
+    position: absolute;
+    border: 0;
+}
+
+.modalCarregamento::backdrop{
+    background-color: white;
+    opacity: 0.9;
+}

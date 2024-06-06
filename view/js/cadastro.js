@@ -1,36 +1,72 @@
 import { fazFetch, msgErro } from "./funcoesUtil.js";
+import { buscarCep } from "./buscarCep.js"
+
 
 (() => {
+    const elementCep = document.querySelector("#cep-usuario");
+    elementCep.addEventListener("change", (event) => {
+        event.preventDefault()
+        let cep = elementCep.value;
+        if(cep.length == 9){
+            const modal = document.querySelector("#modalCarregamento");
+            modal.showModal();
+            buscarCep(cep, modal);
+        }
+        else{
+            msgErro("CEP incompleto.");
+        }
+    })
+    
+    elementCep.addEventListener("keydown", (event) => {
+        if(elementCep.value.length == 5 && !(event.key == 'Backspace')){
+            elementCep.value += "-";
+        }
+    })
+
     document.querySelector("#btn-cadastro").addEventListener("click", function () {
-        
-        if (!verificaDadosCadastro(dadosCadastro())) {
+        const dadosUsuario = dadosCadastro()
+        if (dadosUsuario.senha !== dadosUsuario.confirmaSenha) {
+            alert('Senhas diferentes');
+            return
+        }
+        if (verificaDadosCadastro(dadosUsuario)) {
             return
         }
         fazFetch("POST", "../../controller/login/cadastro.php", dadosCadastro())
-            .then(resposta => {
-                if (resposta.erro) {
-                    msgErro(resposta.msg);
-                    return;
-                }
-                window.location.href = (`http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/perfil.html?id=${resposta.dados.id}`);
-            })
-            .catch(erro => {
-                console.log(erro);
-            })
+        .then(resposta => {
+            if (resposta.erro) {
+                msgErro(resposta.msg);
+                return;
+            }
+            window.location.href = (`http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/perfil.html?id=${resposta.dados.id}`);
+        })
+        .catch(erro => {
+            console.log(erro);
+        })
     })
-
 })()
 
-function verificaDadosCadastro(nome,email,idade,cpf,telefone,dataNascimento,cep,endereco,senha,confirmaSenha,situacaoEmprego,beneficiosGoverno,genero,nomeSocial) {
+
+function verificaDadosCadastro({nome, email, idade, cpf, telefone, dataNascimento, cep, endereco, senha, confirmaSenha, situacaoEmprego, beneficiosGoverno, genero, nomeSocial}) {
     //código pra verificar se todos os campos foram preenchidos
-    const campos = [nome =! "nome_usuario"  && email != "email-usuario" && idade != "idade-usuario" && cpf != "cpf-usuario" && telefone != "telefone-usuario" && dataNascimento != "data-nascimento" && cep != "cep-usuario" && endereco != "endereco-usuario" &&  senha !=  "senha-usuario" && confirmaSenha != "confirmar-senha" && situacaoEmprego != "situacao-emprego-usuario" && beneficiosGoverno != "beneficios-governo-usuario" && genero != "genero" && nomeSocial != "nome-social"];
-    for (let campo of campos) {
-        if (campo  && !document.querySelector("#campo").value) {
-            return false;
-        }
-    }
-    return true;
+    return (
+        nome != "" && 
+        email != "" && 
+        idade != "" && 
+        cpf != "" && 
+        telefone != "" && 
+        dataNascimento != "" && 
+        cep != "" && 
+        endereco != "" && 
+        senha != "" && 
+        confirmaSenha != "" && 
+        situacaoEmprego != "" && 
+        beneficiosGoverno != "" && 
+        genero != "" && 
+        nomeSocial != ""
+    );
 }
+
 function dadosCadastro() {
     return {
         "nome": document.querySelector("#nome-usuario").value,
@@ -43,11 +79,10 @@ function dadosCadastro() {
         "endereco": document.querySelector("#endereco-usuario").value,
         "senha": document.querySelector("#senha-usuario").value,
         "confirmaSenha": document.querySelector("#confirmar-senha").value,
-        "situacao_emprego": document.querySelector("input[name='situacao-emprego-usuario']:checked").value == "sim" ? true : false,
-        "beneficios_governo": document.querySelector("input[name='beneficios-governo-usuario']:checked").value == "sim" ? true : false,
-        "genero": document.querySelector("input[name='genero']:checked").value,
+        "situacao_emprego": document.querySelector("input[name='situacao-emprego-usuario']:checked")? (document.querySelector("input[name='situacao-emprego-usuario']:checked").value == "sim" ? true : false): "",
+        "beneficios_governo": document.querySelector("input[name='beneficios-governo-usuario']:checked")? (document.querySelector("input[name='beneficios-governo-usuario']:checked").value == "sim" ? true : false): "",
+        "genero": document.querySelector("input[name='genero']:checked")?document.querySelector("input[name='genero']:checked").value: "",
         "nome_social": document.querySelector("#nome-social").value
     }
 }
-verificaDadosCadastro(dadosCadastro)
 

@@ -19,12 +19,17 @@ function msgErro(msg){
     const spanMsg = document.querySelector("#msg");
     spanMsg.classList = "msg-erro";
     spanMsg.textContent = msg;
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+    })
+
 }
 
 function verificaErro(resposta){
     // console.log(resposta);
     if(!resposta.ok){
-        throw new Error("Erro ao fazer requisição: "+resposta.status + " - " + resposta.statusText);
+        throw new Error("Erro ao fazer requisição: " + resposta.status + " - " + resposta.statusText);
     }
     return resposta;
 }
