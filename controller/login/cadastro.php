@@ -4,7 +4,7 @@ require_once("../../model/funcoesUtil.php");
 $cadastroPost = file_get_contents("php://input");
 $cadastro = json_decode($cadastroPost, true);
 
-if(empty($cadastro) || is_null($cadastro)){
+if(empty($cadastro)){
     respostaJson(true, "Ninguém foi recebido para ser cadastrado.");
 }
 $con = getConexao();
