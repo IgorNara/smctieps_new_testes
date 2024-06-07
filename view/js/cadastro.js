@@ -54,34 +54,24 @@ import { buscarCep } from "./buscarCep.js"
     })
 })()
 
-function verificaDadosCadastro({ nome, email, idade, cpf, telefone, dataNascimento, cep, endereco, senha, confirmaSenha, situacaoEmprego, beneficiosGoverno, genero, nomeSocial }) {
-    //código pra verificar se todos os campos foram preenchidos
-    const campos = [nome = ! "nome_usuario" && email != "email-usuario" && idade != "idade-usuario" && cpf != "cpf-usuario" && telefone != "telefone-usuario" && dataNascimento != "data-nascimento" && cep != "cep-usuario" && endereco != "endereco-usuario" && senha != "senha-usuario" && confirmaSenha != "confirmar-senha" && situacaoEmprego != "situacao-emprego-usuario" && beneficiosGoverno != "beneficios-governo-usuario" && genero != "genero" && nomeSocial != "nome-social"];
-    for (let campo of campos) {
-        if (campo && !document.querySelector("#campo").value) {
-            return false;
-        }
-    }
-    return true;
-
-    // function verificaDadosCadastro({nome, email, idade, cpf, telefone, dataNascimento, cep, endereco, senha, confirmaSenha, situacaoEmprego, beneficiosGoverno, genero, nomeSocial}) {
-    //     //código pra verificar se todos os campos foram preenchidos
-    //     return (
-    //         nome != "" && 
-    //         email != "" && 
-    //         idade != "" && 
-    //         cpf != "" && 
-    //         telefone != "" && 
-    //         dataNascimento != "" && 
-    //         cep != "" && 
-    //         endereco != "" && 
-    //         senha != "" && 
-    //         confirmaSenha != "" && 
-    //         situacaoEmprego != "" && 
-    //         beneficiosGoverno != "" && 
-    //         genero != "" && 
-    //         nomeSocial != ""
-    //     );
+    function verificaDadosCadastro({nome, email, idade, cpf, telefone, dataNascimento, cep, endereco, senha, confirmaSenha, situacaoEmprego, beneficiosGoverno, genero, nomeSocial}) {
+        //código pra verificar se todos os campos foram preenchidos
+        return (
+            nome != "" && 
+            email != "" && 
+            idade != "" && 
+            cpf != "" && 
+            telefone != "" && 
+            dataNascimento != "" && 
+            cep != "" && 
+            endereco != "" && 
+            senha != "" && 
+            confirmaSenha != "" && 
+            situacaoEmprego != "" && 
+            beneficiosGoverno != "" && 
+            genero != "" && 
+            nomeSocial != ""
+        );
 
     // }
 
