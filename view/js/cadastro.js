@@ -45,7 +45,7 @@ import { buscarCep } from "./buscarCep.js"
                     msgErro(resposta.msg);
                     return;
                 }
-                // window.location.href = (`http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/perfil.html?id=${resposta.dados.id}`);
+                window.location.href = (`http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/perfil.html?id=${resposta.dados.id}`);
             })
             .catch(erro => {
                 console.log(erro);
