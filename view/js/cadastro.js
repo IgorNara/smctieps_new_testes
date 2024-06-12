@@ -39,13 +39,13 @@ import { buscarCep } from "./buscarCep.js"
             return
         }
 
-        fazFetch("POST", "../../controller/login/cadastro.php", dadosUsuario)
+        fazFetch("POST", "../../controller/login/cadastro.php", dadosCadastro())
             .then(resposta => {
                 if (resposta.erro) {
                     msgErro(resposta.msg);
                     return;
                 }
-                window.location.href = (`http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/perfil.html?id=${resposta.dados.id}`);
+                // window.location.href = (`http://localhost/projetos/PMNF/smctieps_newmod/smctieps_new_testes/perfil.html?id=${resposta.dados.id}`);
             })
             .catch(erro => {
                 console.log(erro);
@@ -54,44 +54,44 @@ import { buscarCep } from "./buscarCep.js"
     })
 })()
 
-    function verificaDadosCadastro({nome, email, idade, cpf, telefone, dataNascimento, cep, endereco, senha, confirmaSenha, situacaoEmprego, beneficiosGoverno, genero, nomeSocial}) {
-        //código pra verificar se todos os campos foram preenchidos
-        return (
-            nome != "" && 
-            email != "" && 
-            idade != "" && 
-            cpf != "" && 
-            telefone != "" && 
-            dataNascimento != "" && 
-            cep != "" && 
-            endereco != "" && 
-            senha != "" && 
-            confirmaSenha != "" && 
-            situacaoEmprego != "" && 
-            beneficiosGoverno != "" && 
-            genero != "" && 
-            nomeSocial != ""
-        );
+function verificaDadosCadastro({ nome, email, idade, cpf, telefone, dataNascimento, cep, endereco, senha, confirmaSenha, situacaoEmprego, beneficiosGoverno, genero, nomeSocial }) {
+    //código pra verificar se todos os campos foram preenchidos
+    return (
+        nome != "" &&
+        email != "" &&
+        idade != "" &&
+        cpf != "" &&
+        telefone != "" &&
+        dataNascimento != "" &&
+        cep != "" &&
+        endereco != "" &&
+        senha != "" &&
+        confirmaSenha != "" &&
+        situacaoEmprego != "" &&
+        beneficiosGoverno != "" &&
+        genero != "" &&
+        nomeSocial != ""
+    );
 
-    // }
+}
 
-    function dadosCadastro() {
-        return {
-            "nome": document.querySelector("#nome-usuario").value,
-            "email": document.querySelector("#email-usuario").value,
-            "idade": document.querySelector("#idade-usuario").value,
-            "cpf": document.querySelector("#cpf-usuario").value,
-            "telefone": document.querySelector("#telefone-usuario").value,
-            "dataNascimento": document.querySelector("#data-nascimento").value,
-            "cep": document.querySelector("#cep-usuario").value,
-            "endereco": document.querySelector("#endereco-usuario").value,
-            "senha": document.querySelector("#senha-usuario").value,
-            "confirmaSenha": document.querySelector("#confirmar-senha").value,
-            "situacao_emprego": document.querySelector("input[name='situacao-emprego-usuario']:checked") ? (document.querySelector("input[name='situacao-emprego-usuario']:checked").value == "sim" ? true : false) : "",
-            "beneficios_governo": document.querySelector("input[name='beneficios-governo-usuario']:checked") ? (document.querySelector("input[name='beneficios-governo-usuario']:checked").value == "sim" ? true : false) : "",
-            "genero": document.querySelector("input[name='genero']:checked") ? document.querySelector("input[name='genero']:checked").value : "",
-            "nome_social": document.querySelector("#nome-social").value
-        }
+function dadosCadastro() {
+    return {
+        "nome": document.querySelector("#nome-usuario").value,
+        "email": document.querySelector("#email-usuario").value,
+        "idade": document.querySelector("#idade-usuario").value,
+        "cpf": document.querySelector("#cpf-usuario").value,
+        "telefone": document.querySelector("#telefone-usuario").value,
+        "dataNascimento": document.querySelector("#data-nascimento").value,
+        "cep": document.querySelector("#cep-usuario").value,
+        "endereco": document.querySelector("#endereco-usuario").value,
+        "senha": document.querySelector("#senha-usuario").value,
+        "confirmaSenha": document.querySelector("#confirmar-senha").value,
+        "situacao_emprego": document.querySelector("input[name='situacao-emprego-usuario']:checked") ? (document.querySelector("input[name='situacao-emprego-usuario']:checked").value == "sim" ? true : false) : "",
+        "beneficios_governo": document.querySelector("input[name='beneficios-governo-usuario']:checked") ? (document.querySelector("input[name='beneficios-governo-usuario']:checked").value == "sim" ? true : false) : "",
+        "genero": document.querySelector("input[name='genero']:checked") ? document.querySelector("input[name='genero']:checked").value : "",
+        "nome_social": document.querySelector("#nome-social").value
     }
 }
+
 
