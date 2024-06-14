@@ -4,9 +4,23 @@ require_once("../../model/funcoesUtil.php");
 $cadastroPost = file_get_contents("php://input");
 $cadastro = json_decode($cadastroPost, true);
 
-if(empty($cadastro)){
-    respostaJson(true, "Ninguém foi recebido para ser cadastrado.");
-}
+$nome = (isset($cadastro["nome"]) && $cadastro["nome"] != null) ? $cadastro["nome"] : "";
+$email = (isset($cadastro["email"]) && $cadastro["email"] != null) ? $cadastro["email"] : "";
+$cpf = (isset($cadastro["cpf"]) && $cadastro["cpf"] != null) ? $cadastro["cpf"] : "";
+$telefone = (isset($cadastro["telefone"]) && $cadastro["telefone"] != null) ? $cadastro["telefone"] : "";
+$data = (isset($cadastro["data_nascimento"]) && $cadastro["data_nascimento"] != null) ? $cadastro["data_nascimento"] : "";
+$endereco = (isset($cadastro["endereco"]) && $cadastro["endereco"] != null) ? $cadastro["endereco"] : "";
+$senha = (isset($cadastro["senha"]) && $cadastro["senha"] != null) ? $cadastro["senha"] : "";
+$bairroId = (isset($cadastro["bairro_id"]) && $cadastro["bairro_id"] != null) ? $cadastro["bairro_id"] : "";
+$idade = (isset($cadastro["idade"]) && $cadastro["idade"] != null) ? $cadastro["idade"] : "";
+$emprego = (isset($cadastro["situacao_emprego"]) && $cadastro["situacao_emprego"] != null) ? $cadastro["situacao_emprego"] : "";
+$beneficio = (isset($cadastro["beneficios_governo"]) && $cadastro["beneficios_governo"] != null) ? $cadastro["beneficios_governo"] : "";
+$genero = (isset($cadastro["genero"]) && $cadastro["genero"] != null) ? $cadastro["genero"] : "";
+$nomeSocial = (isset($cadastro["nome_social"]) && $cadastro["nome_social"] != null) ? $cadastro["nome_social"] : "";
+
+if( $nome == "" || $email == "" || $cpf == "" || $telefone == "" || $data == "" || $endereco == "" || $senha == "" || $bairroId == "" || $idade == "" || $emprego == "" || $beneficio == "" || $genero == "")
+    respostaJson(true, "Dados necessários não recebidos.", $cadastro);
+
 $con = getConexao();
 
 try{
@@ -15,19 +29,19 @@ try{
     
     $ps = $con->prepare($sql);
 
-    $ps->bindParam(1, $cadastro["nome"]);
-    $ps->bindParam(2, $cadastro["email"]);
-    $ps->bindParam(3, $cadastro["cpf"]);
-    $ps->bindParam(4, $cadastro["telefone"]);
-    $ps->bindParam(5, date( "Y-m-d", $cadastro["data_nascimento"]));
-    $ps->bindParam(6, $cadastro["endereco"]);
-    $ps->bindParam(7, password_hash($cadastro["senha"], PASSWORD_DEFAULT));
-    $ps->bindParam(8, $cadastro["bairro_id"]);
-    $ps->bindParam(9, $cadastro["idade"]);
-    $ps->bindParam(10, $cadastro["situacao_emprego"]);
-    $ps->bindParam(11, $cadastro["beneficios_governo"]);
-    $ps->bindParam(12, $cadastro["genero"]);
-    $ps->bindParam(13, $cadastro["nome_social"]);
+    $ps->bindParam(1, $nome);
+    $ps->bindParam(2, $email);
+    $ps->bindParam(3, $cpf);
+    $ps->bindParam(4, $telefone);
+    $ps->bindParam(5, date( "Y-m-d", $data));
+    $ps->bindParam(6, $endereco);
+    $ps->bindParam(7, password_hash($senha, PASSWORD_DEFAULT));
+    $ps->bindParam(8, $bairroId);
+    $ps->bindParam(9, $idade);
+    $ps->bindParam(10, $emprego);
+    $ps->bindParam(11, $beneficio);
+    $ps->bindParam(12, $genero);
+    $ps->bindParam(13, $nomeSocial);
     $ps->execute();
 
     respostaJson(false, "Usuário cadastrado com sucesso.", ["id"=>$con->lastInsertId()]);

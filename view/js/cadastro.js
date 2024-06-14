@@ -25,10 +25,7 @@ import { buscarCep } from "./buscarCep.js"
 
     document.querySelector("#btn-cadastro").addEventListener("click", function () {
         const dadosUsuario = dadosCadastro()
-
-
-        console.log(dadosUsuario.senha, "Senha")
-        console.log(dadosUsuario.confirmaSenha, "Confirmar senha")
+        
         if (dadosUsuario.senha !== dadosUsuario.confirmaSenha) {
             alert('Senhas diferentes');
             console.log('Senha diferente')
@@ -38,8 +35,8 @@ import { buscarCep } from "./buscarCep.js"
         if (!verificaDadosCadastro(dadosUsuario)) {
             return
         }
-
-        fazFetch("POST", "../../controller/login/cadastro.php", dadosCadastro())
+        
+        fazFetch("POST", "../../controller/login/cadastro.php", dadosUsuario)
             .then(resposta => {
                 if (resposta.erro) {
                     msgErro(resposta.msg);
@@ -69,8 +66,7 @@ function verificaDadosCadastro({ nome, email, idade, cpf, telefone, dataNascimen
         confirmaSenha != "" &&
         situacaoEmprego != "" &&
         beneficiosGoverno != "" &&
-        genero != "" &&
-        nomeSocial != ""
+        genero != ""
     );
 
 }
