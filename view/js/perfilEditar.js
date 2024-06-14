@@ -13,18 +13,16 @@ import { verificaUser, buscarUsuario } from "./perfil.js";
     .then(resposta => preencherHtml(resposta))
 })()
 
-
 function preencherHtml(dadosUser){
     console.log(dadosUser);
     const topicos = Object.keys(dadosUser);
     const valores = Object.values(dadosUser);
 
-    // valores.forEach((valor, index) => {
-    //     if(topicos[index] == )
-    //     document.querySelector("#" + topicos[index]).textContent = valor;
-    // });
-     
+    valores.forEach((valor, index) => {
+        let elemento = document.querySelector("#" + topicos[index]);
+        if(elemento) {
+            elemento.textContent = valor;
+        }
+    });
 }
-
-
 
