@@ -4,19 +4,19 @@ require_once("../../model/funcoesUtil.php");
 $cadastroPost = file_get_contents("php://input");
 $cadastro = json_decode($cadastroPost, true);
 
-$nome = (isset($cadastro["nome"]) && $cadastro["nome"] != null) ? $cadastro["nome"] : "";
-$email = (isset($cadastro["email"]) && $cadastro["email"] != null) ? $cadastro["email"] : "";
-$cpf = (isset($cadastro["cpf"]) && $cadastro["cpf"] != null) ? $cadastro["cpf"] : "";
-$telefone = (isset($cadastro["telefone"]) && $cadastro["telefone"] != null) ? $cadastro["telefone"] : "";
-$data = (isset($cadastro["data_nascimento"]) && $cadastro["data_nascimento"] != null) ? $cadastro["data_nascimento"] : "";
-$endereco = (isset($cadastro["endereco"]) && $cadastro["endereco"] != null) ? $cadastro["endereco"] : "";
-$senha = (isset($cadastro["senha"]) && $cadastro["senha"] != null) ? $cadastro["senha"] : "";
-$bairroId = (isset($cadastro["bairro_id"]) && $cadastro["bairro_id"] != null) ? $cadastro["bairro_id"] : "";
-$idade = (isset($cadastro["idade"]) && $cadastro["idade"] != null) ? $cadastro["idade"] : "";
-$emprego = (isset($cadastro["situacao_emprego"]) && $cadastro["situacao_emprego"] != null) ? $cadastro["situacao_emprego"] : "";
-$beneficio = (isset($cadastro["beneficios_governo"]) && $cadastro["beneficios_governo"] != null) ? $cadastro["beneficios_governo"] : "";
-$genero = (isset($cadastro["genero"]) && $cadastro["genero"] != null) ? $cadastro["genero"] : "";
-$nomeSocial = (isset($cadastro["nome_social"]) && $cadastro["nome_social"] != null) ? $cadastro["nome_social"] : "";
+$nome = isset($cadastro["nome"]) ? $cadastro["nome"] : "";
+$email = isset($cadastro["email"]) ? $cadastro["email"] : "";
+$cpf = isset($cadastro["cpf"]) ? $cadastro["cpf"] : "";
+$telefone = isset($cadastro["telefone"]) ? $cadastro["telefone"] : "";
+$data = isset($cadastro["data_nascimento"]) ? $cadastro["data_nascimento"] : "";
+$endereco = isset($cadastro["endereco"]) ? $cadastro["endereco"] : "";
+$senha = isset($cadastro["senha"]) ? $cadastro["senha"] : "";
+$bairroId = isset($cadastro["bairro_id"]) ? $cadastro["bairro_id"] : "";
+$idade = isset($cadastro["idade"]) ? $cadastro["idade"] : "";
+$emprego = isset($cadastro["situacao_emprego"]) ? $cadastro["situacao_emprego"] : "";
+$beneficio = isset($cadastro["beneficios_governo"]) ? $cadastro["beneficios_governo"] : "";
+$genero = isset($cadastro["genero"]) ? $cadastro["genero"] : "";
+$nomeSocial = isset($cadastro["nome_social"]) ? $cadastro["nome_social"] : "";
 
 if( $nome == "" || $email == "" || $cpf == "" || $telefone == "" || $data == "" || $endereco == "" || $senha == "" || $bairroId == "" || $idade == "" || $emprego == "" || $beneficio == "" || $genero == "")
     respostaJson(true, "Dados necessários não recebidos.", $cadastro);
