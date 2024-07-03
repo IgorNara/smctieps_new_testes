@@ -11,8 +11,8 @@
     $con = getConexao();
 
     try{
-        $sql = "SELECT usuario.nome, usuario.email AS Email, usuario.cpf AS CPF, usuario.telefone AS Telefone, 
-                usuario.data_nascimento AS 'Data de nascimento', usuario.endereco AS 'Endereço', bairro.nome AS Bairro, cidade.nome AS Cidade, 
+        $sql = "SELECT usuario.nome, usuario.email  Email, usuario.cpf  CPF, usuario.telefone  Telefone, 
+                usuario.data_nascimento  'Data de nascimento', usuario.endereco AS 'Endereço', bairro.nome AS Bairro, cidade.nome AS Cidade, 
                 uf.sigla AS UF, bairro.cep AS CEP
                 FROM usuario JOIN bairro ON(bairro.id = usuario.bairro_id)
                 JOIN cidade ON(cidade.id = bairro.cidade_id)

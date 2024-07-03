@@ -1,8 +1,6 @@
 <?php
 require_once("../../model/funcoesUtil.php");
 
-
-
 $cadastroPost = file_get_contents("php://input");
 $cadastro = json_decode($cadastroPost, true);
 
