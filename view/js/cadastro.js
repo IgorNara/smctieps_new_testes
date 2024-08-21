@@ -66,7 +66,8 @@ function verificaDadosCadastro({ nome, email, idade, cpf, telefone, dataNascimen
         confirmaSenha != "" &&
         situacaoEmprego != "" &&
         beneficiosGoverno != "" &&
-        genero != ""
+        genero != "" &&
+        nomeSocial != ""
     );
 
 }

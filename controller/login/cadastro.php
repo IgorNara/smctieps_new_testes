@@ -1,31 +1,32 @@
 <?php
-require_once("../../model/funcoesUtil.php");
+require_once "../../model/funcoesUtil.php";
 
 $cadastroPost = file_get_contents("php://input");
 $cadastro = json_decode($cadastroPost, true);
 
-$nome = isset($cadastro["nome"]) ? $cadastro["nome"] : "";
-$email = isset($cadastro["email"]) ? $cadastro["email"] : "";
-$cpf = isset($cadastro["cpf"]) ? $cadastro["cpf"] : "";
-$telefone = isset($cadastro["telefone"]) ? $cadastro["telefone"] : "";
-$data = isset($cadastro["data_nascimento"]) ? $cadastro["data_nascimento"] : "";
-$endereco = isset($cadastro["endereco"]) ? $cadastro["endereco"] : "";
-$senha = isset($cadastro["senha"]) ? $cadastro["senha"] : "";
-$bairroId = isset($cadastro["bairro_id"]) ? $cadastro["bairro_id"] : "";
-$idade = isset($cadastro["idade"]) ? $cadastro["idade"] : "";
-$emprego = isset($cadastro["situacao_emprego"]) ? $cadastro["situacao_emprego"] : "";
-$beneficio = isset($cadastro["beneficios_governo"]) ? $cadastro["beneficios_governo"] : "";
-$genero = isset($cadastro["genero"]) ? $cadastro["genero"] : "";
-$nomeSocial = isset($cadastro["nome_social"]) ? $cadastro["nome_social"] : "";
+$nome = ($cadastro["nome"]) ? $cadastro["nome"] : "";
+$email = ($cadastro["email"]) ? $cadastro["email"] : "";
+$cpf = ($cadastro["cpf"]) ? $cadastro["cpf"] : "";
+$telefone = ($cadastro["telefone"]) ? $cadastro["telefone"] : "";
+$data = ($cadastro["data_nascimento"]) ? $cadastro["data_nascimento"] : "";
+$endereco = ($cadastro["endereco"]) ? $cadastro["endereco"] : "";
+$senha = ($cadastro["senha"]) ? $cadastro["senha"] : "";
+$bairroId = ($cadastro["bairro_id"]) ? $cadastro["bairro_id"] : "";
+$enderecoId = ($cadastro["endereco_id"]) ? $cadastro["endereco_id"] : "";
+$idade = ($cadastro["idade"]) ? $cadastro["idade"] : "";
+$emprego = ($cadastro["situacao_emprego"]) ? $cadastro["situacao_emprego"] : "";
+$beneficio = ($cadastro["beneficios_governo"]) ? $cadastro["beneficios_governo"] : "";
+$genero = ($cadastro["genero"]) ? $cadastro["genero"] : "";
+$nomeSocial = ($cadastro["nome_social"]) ? $cadastro["nome_social"] : "";
 
-if( $nome == "" || $email == "" || $cpf == "" || $telefone == "" || $data == "" || $endereco == "" || $senha == "" || $bairroId == "" || $idade == "" || $emprego == "" || $beneficio == "" || $genero == "")
+if( $nome == "" || $email == "" || $cpf == "" || $telefone == "" || $data == "" || $senha == "" || $endereco == "" || $endereco_id == "" || $idade == "" || $emprego == "" || $beneficio == "" || $genero == "" || $nomeSocial == "")
     respostaJson(true, "Dados necessários não recebidos.", $cadastro);
 
 $con = getConexao();
 
 try{
-    $sql = "INSERT INTO usuario(nome, email, cpf, telefone, data_nascimento, endereco, senha, bairro_id, idade, situacao_emprego, beneficios_governo, genero, nome_social)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO usuario(nome, email, cpf, telefone, data_nascimento, endereco, senha, bairro_id, endereco_id, idade, situacao_emprego, beneficios_governo, genero, nome_social)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $ps = $con->prepare($sql);
 
@@ -36,7 +37,7 @@ try{
     $ps->bindParam(5, date( "Y-m-d", $data));
     $ps->bindParam(6, $endereco);
     $ps->bindParam(7, password_hash($senha, PASSWORD_DEFAULT));
-    $ps->bindParam(8, $bairroId);
+    $ps->bindParam(8, $endereco_id);
     $ps->bindParam(9, $idade);
     $ps->bindParam(10, $emprego);
     $ps->bindParam(11, $beneficio);
